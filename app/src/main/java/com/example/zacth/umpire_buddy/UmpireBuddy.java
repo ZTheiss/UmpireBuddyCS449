@@ -34,6 +34,9 @@ public class UmpireBuddy extends AppCompatActivity {
         btxt=findViewById(R.id.BallTextView);
         stxt=findViewById(R.id.StrikeTextView);
 
+        //Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        //setSupportActionBar(myToolbar);
+
         bbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -54,7 +57,7 @@ public class UmpireBuddy extends AppCompatActivity {
                         builder.show();
                 }
                 else {
-                    btxt.setText("Ball: " + bCounter);
+                    btxt.setText("Balls: " + bCounter);
                 }
             }
         });
@@ -95,7 +98,7 @@ public class UmpireBuddy extends AppCompatActivity {
                     }
                 }
                 else {
-                    stxt.setText("Strike: " + sCounter);
+                    stxt.setText("Strikes: " + sCounter);
                 }
             }
         });
@@ -137,9 +140,4 @@ public class UmpireBuddy extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
 }

@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Umpire Buddy</string>
-    <string name="strike_text">Strike: </string>
-    <string name="ball_text">Ball: </string>
+    <string name="strike_text">Strikes: 0 </string>
+    <string name="ball_text">Balls: 0 </string>
     <string name="action_settings">Settings</string>
-    android:id="@+id/strike_button"
 
 </resources>
