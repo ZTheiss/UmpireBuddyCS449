@@ -4,7 +4,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -34,8 +36,8 @@ public class UmpireBuddy extends AppCompatActivity {
         btxt=findViewById(R.id.BallTextView);
         stxt=findViewById(R.id.StrikeTextView);
 
-        //Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        //setSupportActionBar(myToolbar);
+        Toolbar myToolbar =(findViewById(R.id.my_toolbar));
+        setSupportActionBar(myToolbar);
 
         bbtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -104,9 +106,6 @@ public class UmpireBuddy extends AppCompatActivity {
         });
     }
 
-
-
-
     public void onBallButtonTap(View v){
         Toast myToast = Toast.makeText(getApplicationContext(), "Ball", Toast.LENGTH_SHORT);
         myToast.show();
@@ -117,11 +116,11 @@ public class UmpireBuddy extends AppCompatActivity {
         myToast.show();
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_umpire_buddy, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_umpire_buddy, menu);
         return true;
     }
 
@@ -133,11 +132,23 @@ public class UmpireBuddy extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_refresh) {
+            btxt.setText("Balls: 0");
+            stxt.setText("Strikes: 0");
+            bCounter = 0;
+            sCounter = 0;
+            outs = 0;
+            Toast.makeText(this, "Refreshed", Toast.LENGTH_SHORT).show();
             return true;
         }
-
+        if (id == R.id.action_about) {
+            Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
+    private void initAboutActivity(){
+        AboutActivity aboutActivity = findViewById(R.id.about)
+    }
 }
