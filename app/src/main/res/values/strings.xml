@@ -4,5 +4,6 @@
     <string name="ball_text">Balls: 0 </string>
     <string name="action_refresh">Refresh</string>
     <string name="action_about">About</string>
+    <string name="outs_text">Total Outs: 0</string>
 
 </resources>

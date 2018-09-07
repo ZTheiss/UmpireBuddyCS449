@@ -3,6 +3,7 @@ package com.example.zacth.umpire_buddy;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,12 +17,16 @@ import android.widget.Toast;
 
 public class UmpireBuddy extends AppCompatActivity {
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "text";
     Button bbtn;
     TextView btxt;
     TextView stxt;
+    TextView otext;
     Button sbtn;
     Integer bCounter = 0;
     Integer sCounter = 0;
+    Integer oCounter = 0;
     Integer outs = 0;
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -36,6 +41,7 @@ public class UmpireBuddy extends AppCompatActivity {
         sbtn=(Button) findViewById(R.id.StrikeBtn);
         btxt=findViewById(R.id.BallTextView);
         stxt=findViewById(R.id.StrikeTextView);
+        otext=findViewById(R.id.outTextView);
 
         Toolbar myToolbar =(findViewById(R.id.my_toolbar));
         setSupportActionBar(myToolbar);
@@ -80,6 +86,8 @@ public class UmpireBuddy extends AppCompatActivity {
                             stxt.setText("Strikes: 0");
                             bCounter = 0;
                             sCounter = 0;
+                            oCounter++;
+                            otext.setText("Total Outs: " + oCounter);
                         }
                     });
                     strikesbuilder.show();
@@ -105,6 +113,12 @@ public class UmpireBuddy extends AppCompatActivity {
                 }
             }
         });
+
+        saveData();
+        loadData();
+
+
+
     }
 
     public void onBallButtonTap(View v){
@@ -136,9 +150,11 @@ public class UmpireBuddy extends AppCompatActivity {
         if (id == R.id.action_refresh) {
             btxt.setText("Balls: 0");
             stxt.setText("Strikes: 0");
+            otext.setText("Total Outs: 0");
             bCounter = 0;
             sCounter = 0;
             outs = 0;
+            oCounter = 0;
             Toast.makeText(this, "Refreshed", Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -150,4 +166,14 @@ public class UmpireBuddy extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void saveData(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(TEXT, otext.getText().toString());
+
+        editor.apply();
+    }
+    public void loadData(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+    }
 }

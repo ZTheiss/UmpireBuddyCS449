@@ -7,6 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".UmpireBuddy">
 
+    <TextView
+        android:id="@+id/outTextView"
+        android:layout_width="224dp"
+        android:layout_height="43dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="179dp"
+        android:text="@string/outs_text"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/about_activity"/>
@@ -43,7 +57,9 @@
         android:id="@+id/StrikeBtn"
         android:layout_width="202dp"
         android:layout_height="59dp"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="252dp"
         android:onClick="onStrikeButtonTap"
         android:text="Strikes"
         app:layout_constraintEnd_toEndOf="parent"
