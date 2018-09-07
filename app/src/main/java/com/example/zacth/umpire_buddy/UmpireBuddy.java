@@ -2,6 +2,7 @@ package com.example.zacth.umpire_buddy;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -142,13 +143,11 @@ public class UmpireBuddy extends AppCompatActivity {
             return true;
         }
         if (id == R.id.action_about) {
+            //Intent mIntent = new Intent(android.R.layout., AboutActivity.class);
             Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void initAboutActivity(){
-        AboutActivity aboutActivity = findViewById(R.id.about)
-    }
 }

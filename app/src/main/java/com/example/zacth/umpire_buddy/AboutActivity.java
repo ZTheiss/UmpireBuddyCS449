@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
-public class AboutActivity extends UmpireBuddy{
+/*public class AboutActivity extends UmpireBuddy{
 
 
     public class ViewHolder extends AboutActivity.ViewHolder{
@@ -15,4 +15,4 @@ public class AboutActivity extends UmpireBuddy{
             aboutInfo = itemView
         }
     }
-}
+}*/

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout"
@@ -7,12 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".UmpireBuddy">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/about_activity"/>
+
     <TextView
         android:id="@+id/BallTextView"
         android:layout_width="155dp"
         android:layout_height="43dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="136dp"
         android:text="@string/ball_text"
         android:textSize="35dp"
@@ -25,9 +29,9 @@
         android:id="@+id/StrikeTextView"
         android:layout_width="155dp"
         android:layout_height="43dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
         android:text="@string/strike_text"
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,9 +43,7 @@
         android:id="@+id/StrikeBtn"
         android:layout_width="202dp"
         android:layout_height="59dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="72dp"
+        android:layout_centerInParent="true"
         android:onClick="onStrikeButtonTap"
         android:text="Strikes"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,9 +55,9 @@
         android:id="@+id/BallBtn"
         android:layout_width="202dp"
         android:layout_height="59dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="224dp"
         android:onClick="onBallButtonTap"
         android:text="Balls"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,4 +74,4 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
