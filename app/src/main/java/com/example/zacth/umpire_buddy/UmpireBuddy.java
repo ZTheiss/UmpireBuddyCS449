@@ -28,9 +28,20 @@ public class UmpireBuddy extends AppCompatActivity {
     Integer sCounter = 0;
     Integer oCounter = 0;
     Integer outs = 0;
+    String outPersistent;
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
+    }
+
+    public void onStop(){
+        super.onStop();
+        saveData();
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
+        saveData();
     }
 
     @Override
@@ -115,10 +126,6 @@ public class UmpireBuddy extends AppCompatActivity {
         });
 
         saveData();
-        loadData();
-
-
-
     }
 
     public void onBallButtonTap(View v){
@@ -159,7 +166,9 @@ public class UmpireBuddy extends AppCompatActivity {
             return true;
         }
         if (id == R.id.action_about) {
-            //Intent mIntent = new Intent(android.R.layout., AboutActivity.class);
+            saveData();
+            Intent mIntent = new Intent(this, AboutActivity.class);
+            startActivity(mIntent);
             Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -174,6 +183,11 @@ public class UmpireBuddy extends AppCompatActivity {
         editor.apply();
     }
     public void loadData(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("totalOutsSave", MODE_PRIVATE);
+        outPersistent = sharedPreferences.getString(TEXT, "");
+    }
+
+    private void updatePersistentView(){
+        otext.setText(outPersistent);
     }
 }
